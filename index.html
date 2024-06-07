@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Aleatórias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="separator">DOCUMENTAÇÃO</div>
+            <ul>
+                <li><a href="/documentação/H.html" >HTML</a></li>
+                <li><a href="/documentação/C.html" >CSS</a></li>
+                <li><a href="/documentação/J.html" >JavaScript</a></li>
+            </ul>
+            <div class="separator">&nbsp; Vitor figueiredo &nbsp; Marcos vinicius ribeiro &nbsp; Luis felipe miranda&nbsp; </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Gerador de Senhas Aleatórias</h1>
+        <div class="settings">
+            <label for="length">Comprimento da Senha:</label>
+            <input type="number" id="length" min="4" max="20" value="12">
+
+            <label>
+                <input type="checkbox" id="includeUppercase" checked>
+                Incluir Letras Maiúsculas
+            </label>
+            <label>
+                <input type="checkbox" id="includeLowercase" checked>
+                Incluir Letras Minúsculas
+            </label>
+            <label>
+                <input type="checkbox" id="includeNumbers" checked>
+                Incluir Números
+            </label>
+            <label>
+                <input type="checkbox" id="includeSymbols" checked>
+                Incluir Símbolos
+            </label>
+
+            <button id="generate">Gerar Senha</button>
+        </div>
+        <hr>
+        <div class="result">
+            <h2>Sua Senha:</h2>
+            <div id="passwordResult"></div>
+            <div id="passwordStrength"></div>
+            <button id="copyPassword">Copiar Senha</button>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

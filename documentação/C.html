@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="docS.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/index.html">Voltar</a>
+    <h1>Documentação: <br> Estilos CSS</h1>
+    <p>Este documento descreve os estilos CSS utilizados na aplicação de Gerador de Senhas Aleatórias.</p>
+    <h1>Estrutura do Código CSS</h1>
+    <pre>
+body {
+    /* Define a família de fontes e as propriedades de alinhamento */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Define a altura da página como 100% da altura da viewport */
+    margin: 0; /* Remove as margens padrão do corpo */
+    /* Define uma imagem de fundo, ajustando o tamanho e a posição */
+    background-image: url('matrix.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Estilos para o cabeçalho */
+.header {
+    width: 100%; /* Define a largura do cabeçalho como 100% do contêiner pai */
+    background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo com opacidade */
+    padding: 10px 0; /* Preenchimento superior e inferior de 10 pixels, sem preenchimento nas laterais */
+}
+
+/* Estilos para a navegação dentro do cabeçalho */
+.header nav {
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+.header ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+}
+
+.header ul li {
+    display: inline; /* Exibe os itens da lista em linha */
+    margin: 0 10px; /* Margem entre os itens da lista */
+}
+
+.header ul li a {
+    text-decoration: none; /* Remove a decoração do link */
+    color: #000; /* Cor do texto */
+    transition: color 0.3s; /* Transição suave da cor do texto */
+}
+
+.header ul li a:hover {
+    color: #0d30f7; /* Cor do texto ao passar o mouse sobre o link */
+}
+
+/* Estilos para o separador */
+.separator {
+    display: flex; /* Exibe os elementos do separador como flexíveis */
+    align-items: center; /* Alinha os itens verticalmente */
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+.separator::before,
+.separator::after {
+    content: ''; /* Adiciona conteúdo antes e depois do elemento */
+    flex: 1; /* Distribui o espaço restante igualmente entre os pseudo-elementos */
+    border-bottom: 1px solid #000; /* Linha horizontal */
+}
+
+.separator::before {
+    margin-right: .25em; /* Margem à direita */
+}
+
+.separator::after {
+    margin-left: .25em; /* Margem à esquerda */
+}
+
+/* Estilos para o contêiner principal */
+.container {
+    background: #fff; /* Cor de fundo */
+    padding: 20px; /* Preenchimento interno */
+    border-radius: 18px; /* Borda arredondada */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alinhamento do texto */
+    width: 300px; /* Largura do contêiner */
+    border: black 7px solid; /* Borda preta */
+}
+
+h1 {
+    margin-bottom: 20px; /* Margem inferior do título */
+}
+
+.settings {
+    margin-bottom: 20px; /* Margem inferior das configurações */
+}
+
+.settings label {
+    display: block; /* Exibe as labels em blocos */
+    margin: 10px 0; /* Margem entre as labels */
+}
+
+button {
+    padding: 10px 20px; /* Preenchimento do botão */
+    border: none; /* Remove a borda */
+    background-color: #007BFF; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+    margin-top: 10px; /* Margem superior do botão */
+}
+
+button:hover {
+    background-color: #059b00; /* Cor de fundo do botão ao passar o mouse sobre ele */
+}
+
+.result {
+    margin-top: 20px; /* Margem superior do resultado */
+    font-size: 19px; /* Tamanho da fonte */
+}
+
+#passwordResult {
+    font-weight: bold; /* Peso da fonte */
+    word-break: break-all; /* Quebra de palavra */
+}
+
+#copyPassword {
+    margin-top: 10px; /* Margem superior do botão de cópia */
+    background-color: #0071b3; /* Cor de fundo do botão de cópia */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Borda arredondada */
+    padding: 10px 20px; /* Preenchimento do botão de cópia */
+    cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão de cópia */
+}
+
+#copyPassword:hover {
+    background-color: #dd511a; /* Cor de fundo do botão de cópia ao passar o mouse sobre ele */
+}
+    </pre>
+    <h1>Descrição dos Estilos CSS</h1>
+    <pre>
+        &lt;<span class="tag">body</span>&gt;: Estilos aplicados ao corpo da página, incluindo fonte, alinhamento, imagem de fundo e altura.
+        <span class="element">.header</span>: Estilos para o cabeçalho da página, incluindo largura, cor de fundo e preenchimento.
+        <span class="element">nav</span>: Estilos para a navegação dentro do cabeçalho, alinhando o texto ao centro.
+        <span class="element">.separator</span>: Estilos para o separador visual, usando elementos pseudo-classe para criar uma linha horizontal.
+        <span class="element">.container</span>: Estilos para o contêiner principal do conteúdo, definindo cor de fundo, borda, sombra e alinhamento.
+        <span class="element">h1</span>: Estilos para os títulos, ajustando a margem inferior.
+        <span class="element">.settings</span>: Estilos para a seção de configurações, ajustando a margem inferior.
+        <span class="element">label</span>: Estilos para rótulos de entrada, exibindo-os como blocos e ajustando a margem.
+        <span class="element">button</span>: Estilos para botões, incluindo preenchimento, borda, cor de fundo, cor do texto e borda arredondada.
+        <span class="element">.result</span>: Estilos para a seção de resultados, ajustando a margem superior e o tamanho da fonte.
+        <span class="element">#passwordResult</span>: Estilos para o resultado da senha, ajustando o peso da fonte e a quebra de palavra.
+        <span class="element">#copyPassword</span>: Estilos para o botão de cópia, ajustando a margem superior, cor de fundo, cor do texto e borda arredondada ao passar o mouse sobre ele.
+    </pre>
+</body>
+</html>

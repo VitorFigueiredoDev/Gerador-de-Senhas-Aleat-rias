@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="docS.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/index.html">Voltar</a>
+    <h1>Documentação: <br> Scripts JavaScript</h1>
+    <p>Este documento descreve os scripts JavaScript utilizados na aplicação de Gerador de Senhas Aleatórias.</p>
+    <h1>Estrutura do Código JavaScript</h1>
+    <pre>
+document.getElementById('generate').addEventListener('click', generatePassword);
+document.getElementById('copyPassword').addEventListener('click', copyPassword);
+
+function generatePassword() {
+    // Obtém os valores dos elementos de entrada
+    const length = document.getElementById('length').value;
+    const includeUppercase = document.getElementById('includeUppercase').checked;
+    const includeLowercase = document.getElementById('includeLowercase').checked;
+    const includeNumbers = document.getElementById('includeNumbers').checked;
+    const includeSymbols = document.getElementById('includeSymbols').checked;
+
+    // Define o limite máximo de 20 caracteres
+    const maxLength = 20;
+
+    // Verifica se o comprimento excede o limite máximo
+    if (length > maxLength) {
+        alert('O comprimento máximo da senha é de 20 caracteres!');
+        return;
+    }
+
+    // Define os conjuntos de caracteres possíveis
+    const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
+    const numberChars = '0123456789';
+    const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+    let charPool = '';
+    let criteriaCount = 0;
+
+    // Adiciona os conjuntos de caracteres selecionados ao pool de caracteres
+    if (includeUppercase) {
+        charPool += uppercaseChars;
+        criteriaCount++;
+    }
+    if (includeLowercase) {
+        charPool += lowercaseChars;
+        criteriaCount++;
+    }
+    if (includeNumbers) {
+        charPool += numberChars;
+        criteriaCount++;
+    }
+    if (includeSymbols) {
+        charPool += symbolChars;
+        criteriaCount++;
+    }
+
+    // Verifica se algum critério foi selecionado
+    if (charPool === '') {
+        alert('Por favor, selecione pelo menos um critério!');
+        return;
+    }
+
+    let password = '';
+    // Gera a senha aleatória
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * charPool.length);
+        password += charPool[randomIndex];
+    }
+
+    // Exibe a senha gerada
+    document.getElementById('passwordResult').innerText = password;
+
+    // Avalia a força da senha
+    evaluatePasswordStrength(length, criteriaCount);
+}
+
+function evaluatePasswordStrength(length, criteriaCount) {
+    const strengthElement = document.getElementById('passwordStrength');
+    
+    // Determina a força da senha com base no comprimento e no número de critérios selecionados
+    if (length < 8 || criteriaCount < 2) {
+        strengthElement.innerText = 'Força da Senha: Fraca';
+        strengthElement.style.color = 'red';
+    } else if (length < 12 || criteriaCount < 3) {
+        strengthElement.innerText = 'Força da Senha: Média';
+        strengthElement.style.color = 'orange';
+    } else {
+        strengthElement.innerText = 'Força da Senha: Forte';
+        strengthElement.style.color = 'green';
+    }
+}
+
+function copyPassword() {
+    // Obtém a senha gerada
+    const password = document.getElementById('passwordResult').innerText;
+    if (!password) {
+        alert('Nenhuma senha gerada para copiar!');
+        return;
+    }
+
+    // Copia a senha para a área de transferência
+    navigator.clipboard.writeText(password).then(() => {
+        alert('Senha copiada para a área de transferência!');
+    }).catch(err => {
+        console.error('Erro ao copiar a senha: ', err);
+    });
+}
+    </pre>
+    <h1>Descrição dos Scripts JavaScript</h1>
+    <pre>
+        <span class="element">document.getElementById('generate').addEventListener('click', generatePassword);</span>: Adiciona um ouvinte de evento ao botão de gerar senha para chamar a função generatePassword().
+        <span class="element">document.getElementById('copyPassword').addEventListener('click', copyPassword);</span>: Adiciona um ouvinte de evento ao botão de copiar senha para chamar a função copyPassword().
+        <span class="element">generatePassword()</span>: Função para gerar uma senha aleatória com base nos critérios selecionados pelo usuário.
+        <span class="element">evaluatePasswordStrength(length, criteriaCount)</span>: Função para avaliar a força da senha com base no comprimento e número de critérios selecionados.
+        <span class="element">copyPassword()</span>: Função para copiar a senha gerada para a área de transferência do usuário.
+        <span class="element">length</span>: Variável que armazena o comprimento da senha definido pelo usuário.
+        <span class="element">includeUppercase</span>: Variável booleana que indica se letras maiúsculas devem ser incluídas na senha.
+        <span class="element">includeLowercase</span>: Variável booleana que indica se letras minúsculas devem ser incluídas na senha.
+        <span class="element">includeNumbers</span>: Variável booleana que indica se números devem ser incluídos na senha.
+        <span class="element">includeSymbols</span>: Variável booleana que indica se símbolos devem ser incluídos na senha.
+        <span class="element">maxLength</span>: Constante que define o comprimento máximo permitido para a senha.
+        <span class="element">uppercaseChars</span>: String contendo todas as letras maiúsculas.
+        <span class="element">lowercaseChars</span>: String contendo todas as letras minúsculas.
+        <span class="element">numberChars</span>: String contendo todos os dígitos numéricos.
+        <span class="element">symbolChars</span>: String contendo todos os símbolos especiais.
+        <span class="element">charPool</span>: String que representa o conjunto de caracteres a partir do qual a senha será gerada.
+        <span class="element">criteriaCount</span>: Variável que conta o número de critérios selecionados pelo usuário.
+        <span class="element">randomIndex</span>: Índice aleatório usado para selecionar caracteres do pool de caracteres.
+        <span class="element">password</span>: String que armazena a senha gerada.
+        <span class="element">strengthElement</span>: Elemento HTML que exibe a força da senha.
+        <span class="element">navigator.clipboard.writeText(password)</span>: Método que escreve o texto especificado na área de transferência.
+        <span class="element">then()</span>: Método que especifica uma função a ser executada após a conclusão bem-sucedida de uma operação assíncrona.
+        <span class="element">catch(err)</span>: Método que especifica uma função a ser executada se ocorrer um erro durante a execução da operação assíncrona.
+        <span class="element">console.error('Erro ao copiar a senha: ', err)</span>: Exibe uma mensagem de erro no console do navegador caso ocorra um erro ao copiar a senha para a área de transferência.
+        <span class="element">innerText</span>: Propriedade que define ou retorna o texto visível dentro de um elemento.
+        <span class="element">style.color</span>: Propriedade que define a cor do texto de um elemento.
+        <span class="element">alert(message)</span>: Exibe uma caixa de diálogo com uma mensagem especificada.
+        <span class="element">navigator.clipboard</span>: Objeto que fornece acesso à área de transferência do navegador.
+        <span class="element">writeText(password)</span>: Método que escreve o texto especificado na área de transferência do navegador.
+        <span class="element">Math.floor()</span>: Função que retorna o maior número inteiro menor ou igual a um número especificado.
+        <span class="element">Math.random()</span>: Função que retorna um número pseudo-aleatório no intervalo [0, 1).
+        <span class="element">for loop</span>: Estrutura de repetição que executa um bloco de código várias vezes.
+        <span class="element">+=</span>: Operador de atribuição que adiciona um valor ao valor de uma variável.
+        <span class="element">checked</span>: Propriedade que retorna true se um elemento de entrada do tipo checkbox estiver marcado.
+        <span class="element">return</span>: Declaração que termina a execução de uma função e especifica o valor a ser retornado.
+        <span class="element">document.getElementById('elementId')</span>: Método que retorna uma referência ao elemento HTML com o ID especificado.
+        <span class="element">addEventListener(event, function)</span>: Método que anexa um manipulador de evento a um elemento HTML.
+        <span class="element">click</span>: Evento que ocorre quando um elemento é clicado.
+        <span class="element">mouseover</span>: Evento que ocorre quando o cursor do mouse é movido para fora de um elemento.
+    </pre>
+</body>
+</html>

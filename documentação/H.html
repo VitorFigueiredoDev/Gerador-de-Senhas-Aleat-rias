@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="docS.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <a href="/index.html">Voltar</a>
+    <h1>Documentação: <br> Gerador de Senhas Aleatórias</h1>
+    <p>Este documento descreve a estrutura e funcionamento do Gerador de Senhas Aleatórias, uma aplicação web desenvolvida em HTML, CSS e JavaScript.</p>
+    <h1>Estrutura do Código HTML</h1>
+    <pre>
+        &lt;body&gt;
+        &lt;header class="header"&gt;
+            &lt;nav&gt;
+                &lt;div class="separator"&gt;DOCUMENTAÇÃO&lt;/div&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="/documentação/H.html" target="_blank"&gt;HTML&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/documentação/C.html" target="_blank"&gt;CSS&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="/documentação/J.html" target="_blank"&gt;JavaScript&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;div class="separator"&gt;&amp;nbsp; Vitor figueiredo &amp;nbsp; Marcos vinicius &amp;nbsp; Luis felipe miranda&amp;nbsp; &lt;/div&gt;
+            &lt;/nav&gt;
+        &lt;/header&gt;
+
+        &lt;div class="container"&gt;
+            &lt;h1&gt;Gerador de Senhas Aleatórias&lt;/h1&gt;
+            &lt;div class="settings"&gt;
+                &lt;label for="length"&gt;Comprimento da Senha:&lt;/label&gt;
+                &lt;input type="number" id="length" min="4" max="20" value="12"&gt;
+
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="includeUppercase" checked&gt;
+                    Incluir Letras Maiúsculas
+                &lt;/label&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="includeLowercase" checked&gt;
+                    Incluir Letras Minúsculas
+                &lt;/label&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="includeNumbers" checked&gt;
+                    Incluir Números
+                &lt;/label&gt;
+                &lt;label&gt;
+                    &lt;input type="checkbox" id="includeSymbols" checked&gt;
+                    Incluir Símbolos
+                &lt;/label&gt;
+
+                &lt;button id="generate"&gt;Gerar Senha&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;hr&gt;
+            &lt;div class="result"&gt;
+                &lt;h2&gt;Sua Senha:&lt;/h2&gt;
+                &lt;div id="passwordResult"&gt;&lt;/div&gt;
+                &lt;div id="passwordStrength"&gt;&lt;/div&gt;
+                &lt;button id="copyPassword"&gt;Copiar Senha&lt;/button&gt;
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+        &lt;script src="script.js"&gt;&lt;/script&gt;
+    </pre>
+    <h1>Descrição dos Elementos</h1>
+    <pre>
+        &lt;<span class="tag">DOCTYPE</span>&gt;: Define a versão do HTML utilizada no documento.
+        <span class="element">Elemento HTML</span>: Define o início de um documento HTML.
+        <span class="element">Cabeçalho</span> &nbsp; <span class="element2">(head)</span>: Contém informações sobre o documento, como o título e metadados.
+        <span class="element">Meta Charset</span>: Especifica o conjunto de caracteres utilizado (UTF-8).
+        <span class="element">Meta Viewport</span>: Define como a página deve ser renderizada em dispositivos móveis.
+        <span class="element">Título</span>: Define o título da página exibido na aba do navegador.
+        <span class="element">Link CSS</span>: Importa o arquivo CSS externo.
+        <span class="element">Corpo</span>&nbsp;<span class="element2"> (body)</span>: Contém o conteúdo visível da página.
+        <span class="element">Cabeçalho</span>&nbsp;<span class="element2"> (header)</span>: Seção de cabeçalho da página.
+        <span class="element">Navegação</span>&nbsp;<span class="element2"> (nav)</span>: Contém links de navegação para a documentação HTML, CSS e JavaScript.
+        <span class="element">Separadores</span>&nbsp;<span class="element2"> (div.separator)</span>: Divisões visuais no cabeçalho.
+        <span class="element">Lista de Links</span>&nbsp;<span class="element2"> (ul)</span>: Lista não ordenada de links.
+        <span class="element">Item de Lista</span>&nbsp;<span class="element2"> (li)</span>: Cada item da lista de links.
+        <span class="element">Âncoras</span>&nbsp;<span class="element2"> (a)</span>: Links para os documentos de documentação.
+        <span class="element">Conteúdo Principal</span>&nbsp;<span class="element2"> (div.container)</span>: Contém o conteúdo principal da página.
+        <span class="element">Título Principal</span>&nbsp;<span class="element2"> (h1)</span>: Título principal da aplicação.
+        <span class="element">Configurações</span>&nbsp;<span class="element2"> (div.settings)</span>: Seção onde o usuário pode configurar a geração de senhas.
+        <span class="element">Campos de Entrada</span>&nbsp;<span class="element2"> (input)</span>: Entradas para o comprimento da senha e seleção de tipos de caracteres.
+        <span class="element">Botão de Geração</span>&nbsp;<span class="element2"> (button#generate)</span>: Botão para gerar uma senha aleatória.
+        <span class="element">Resultado da Senha</span>&nbsp;<span class="element2"> (div.result)</span>: Seção onde a senha gerada é exibida.
+        <span class="element">Força da Senha</span>&nbsp;<span class="element2"> (div#passwordStrength)</span>: Indicador visual da força da senha.
+        <span class="element">Botão de Cópia</span>&nbsp;<span class="element2"> (button#copyPassword)</span>: Botão para copiar a senha gerada para a área de transferência.
+        <span class="element">Script JavaScript</span>&nbsp;<span class="element2"> (script.js)</span>: Arquivo JavaScript para interatividade e funcionalidade da aplicação.
+    </pre>
+    
+    
+</body>
+</html>
