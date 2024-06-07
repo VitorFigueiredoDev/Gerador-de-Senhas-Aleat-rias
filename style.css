@@ -69,8 +69,9 @@ body {
     border-radius: 18px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
-    border: black 7px solid;
+    max-width: 400px; /* Defina uma largura máxima para garantir que o conteúdo não fique muito largo */
+    width: 90%; /* Use uma largura percentual para que a largura se ajuste conforme necessário */
+    margin: 20px; /* Adicione margens para espaçamento */
 }
 
 h1 {
@@ -122,4 +123,11 @@ button:hover {
 
 #copyPassword:hover {
     background-color: #dd511a; 
+}
+
+/* Mídia para dispositivos de até 600px de largura */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%; /* Redefina a largura para ocupar a maior parte da tela em dispositivos menores */
+    }
 }
